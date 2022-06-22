@@ -3,7 +3,7 @@ nav {
   justify-content: flex-start;
   align-items: center;
   height: 70px;
-  background-color: red;
+  background-color: green;
 }
 
 * {
@@ -13,7 +13,7 @@ nav {
 }
 
 body {
-  background-color: green;
+  background-color: pink;
 }
 
 /*# sourceMappingURL=output.css.map */
