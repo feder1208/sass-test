@@ -31,7 +31,7 @@
             display: none;
         }
     
-        .body__title em {
+        .body__title span {
             color: map-get(variables.$colors, 'text-title');
         }
 
