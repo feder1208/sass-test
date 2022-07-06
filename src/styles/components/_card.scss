@@ -1,0 +1,364 @@
+@use "../variables";
+@use "../responsive";
+
+// Styles for the regular card
+
+.card-regular {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+
+    &__image {
+        background-color: map-get(variables.$colors, 'background-image');
+        border: .1rem solid map-get(variables.$colors, 'line-separator');
+        width: 100%;
+        aspect-ratio: 3 /2;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: .8rem 1.6rem;
+        gap: .8rem;
+        font-family: map-get(variables.$fontFamily, 'serif');
+        font-weight: map-get(variables.$fontWeight, 'regular');
+        font-size: map-get(variables.$fontSize, 'title-phone');
+        line-height: 2.8rem;
+        letter-spacing: -0.02rem;
+
+        .body__icon {
+            display: none;
+        }
+    
+        .body__title em {
+            color: map-get(variables.$colors, 'text-title');
+        }
+
+        .body__subtitle {
+            font-family: map-get(variables.$fontFamily, 'sans-serif');
+            font-weight: map-get(variables.$fontWeight, 'regular');
+            font-size: map-get(variables.$fontSize, 'subtitle');
+            line-height: 2.4rem;
+            color: map-get(variables.$colors, 'text-subtitle');
+        }
+
+        .body__author {
+            font-family: map-get(variables.$fontFamily, 'sans-serif');
+            font-weight: map-get(variables.$fontWeight, 'bold');
+            font-size: map-get(variables.$fontSize, 'author');
+            line-height: 1.6rem;
+            color: map-get(variables.$colors, 'text-author-name');
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+
+            &-img {
+                width: 2.4rem;
+                height: 2.4rem;
+                background: #F2F2F2;
+                border: .1rem solid #FEFEFE;
+                border-radius: 20rem;
+            }
+        }
+    }
+}
+
+// Styles for the author card
+
+.card-render-author {
+    border: .1rem solid map-get(variables.$colors, 'line-separator');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 88%;  
+    padding: 0;
+    gap: .8rem;
+    margin: 0 auto 3rem auto;
+    position: relative;
+    text-align: center;
+
+    .card-author__image-rounded {
+        width: 5.657rem;
+        height: 5.657rem;
+        background: map-get(variables.$colors, 'line-separator');
+        border: .1rem solid #FFFFFF;
+        border-radius: 20rem;
+        align-self: center;
+    }
+
+    .body__author {
+        align-self: center;
+    }
+
+    .separator {
+        position: absolute;
+        width: 8rem;
+        height: .1rem;
+        left: calc(50% - 8rem/2);
+        bottom: 0rem;
+        background: #5A5A5A;
+    }
+}
+
+// Media query for mobile
+
+ @include responsive.media-down('mobile') {
+    .body__author {
+        gap: 0;
+
+        &-img {
+            display: none;
+        }
+    }
+ }
+
+// Media query for tablet
+
+ @include responsive.media-up('tablet') {
+    .card-regular {
+        min-height: 32.6rem;
+        width: 30%;
+
+         &__image {
+            width: 100%;
+         }
+    }
+
+    .body__icon {
+        display: none;
+    }
+
+    .card-regular-wider {
+        width: 52%;
+    }
+
+    .card-render-body {
+        .card-body {
+            width: 39%;
+        }
+        
+        .card-body__image {
+            display: none;
+        }
+
+        .body__title {
+            font-size: map-get(variables.$fontSize, 'title');
+            line-height: 4rem;
+            letter-spacing: -0.04rem;
+        } 
+    }
+
+    .card-render-author {
+        width: 30%;
+
+        .body__author {
+            padding-bottom: 1.5rem;
+        }
+    }
+       
+ }
+
+ // Media query for desktop
+
+ @include responsive.media-up('desktop') {
+    .card-render-body {
+        .card-body {
+            width: 27%;
+        }
+    }
+
+    .card-regular-wider {
+        width: 54%;
+    }
+  
+    // Add hover effect on the links
+    a:hover {
+        .card-regular__image {
+            opacity: .8;
+        }
+    }
+ }
+
+
+ // Media queries for the Container module
+
+@include responsive.media-up('tablet') {
+    .right-focal {
+        display: flex;
+
+        .card-render-body {
+            max-width: 39%;
+        }
+
+        .card-render-regular {
+            max-width: 54%;
+        }
+
+        .card-regular {
+            width: 100%
+        }
+
+        .separator-line {
+            margin: 0 1.6rem;
+            width: 0rem;
+            min-height: 40.533rem;
+            border: .1rem solid map-get(variables.$colors, 'line-separator');
+        }
+
+        .body__icon {
+            display: none;
+        }
+    }
+
+    .card-group-3 {
+        display: flex;
+        gap: 1.6rem;
+        width: 96%;
+        margin: 7.2rem auto 0 auto;
+
+        .card-regular {
+            width: 100%;
+        }
+
+        .card-render-author {
+            width: 100%;
+            min-height: 29rem;
+            align-self: center;
+        }
+    }
+}
+
+
+@include responsive.media-up('desktop') {
+    .right-focal {
+        display: flex;
+        margin-left: 5rem;
+
+        .card-render-body {
+            max-width: 27%;
+        }
+
+        .card-render-regular {
+            max-width: 60%;
+        }
+
+        .card-regular {
+            width: 100%
+        }
+
+        .separator-line {
+            margin: 0 4rem;
+            width: 0rem;
+            min-height: 47.733rem;
+            border: .1rem solid map-get(variables.$colors, 'line-separator');
+        }
+
+        .body__icon {
+            display: flex;
+            align-items: center;
+            padding: .4rem .8rem .4rem .4rem;
+            gap: .4rem;
+            width: 15.5rem;
+            height: 2.8rem;
+            background: #FEFEFE;
+            border: .1rem solid #E4E4E4;
+            border-radius: 1.6rem;
+            font-family: map-get(variables.$fontFamily, 'sans-serif');
+            font-weight: map-get(variables.$fontWeight, 'bold');
+            font-size: map-get(variables.$fontSize, 'subscription');
+            line-height: 1.6rem;
+            text-align: center;
+            color: #272727;
+
+            & span {
+                display: flex;
+            }
+        }
+    }
+
+    .card-group-3 {
+        display: flex;
+        gap: 4rem;
+        width: 90%;
+        margin: 7.2rem 5rem 0 5rem;
+
+        .card-regular {
+            width: 100%;
+        }
+
+        .card-render-author {
+            width: 70%;
+            min-height: 29rem;
+            align-self: center;
+        }
+
+        .body__icon {
+            display: flex;
+            align-items: center;
+            padding: .4rem .8rem .4rem .4rem;
+            gap: .4rem;
+            width: 15.5rem;
+            height: 2.8rem;
+            background: #FEFEFE;
+            border: .1rem solid #E4E4E4;
+            border-radius: 1.6rem;
+            font-family: map-get(variables.$fontFamily, 'sans-serif');
+            font-weight: map-get(variables.$fontWeight, 'bold');
+            font-size: map-get(variables.$fontSize, 'subscription');
+            line-height: 1.6rem;
+            text-align: center;
+            color: #272727;
+            margin: auto;
+
+            & span {
+                display: flex;
+            }
+        }
+    }
+}
+
+@include responsive.media-up('desktop-lg') {
+    .right-focal {
+        display: flex;
+        margin-left: 5rem;
+
+        .card-render-body {
+            max-width: 27%;
+        }
+
+        .card-render-regular {
+            max-width: 60%;
+        }
+
+        .card-regular {
+            width: 100%
+        }
+
+        .separator-line {
+            margin: 0 4rem;
+            width: 0rem;
+            min-height: 47.733rem;
+            border: .1rem solid map-get(variables.$colors, 'line-separator');
+        }
+    }
+
+    .card-group-3 {
+        .card-author {
+            .card-regular__body {
+                width: 70%;
+                margin: auto;
+            }
+
+            .body__title {
+                    width: 90%;
+                    text-align: center;
+                    margin: auto;
+            }
+
+            .body__author {
+                margin-top: .8rem;
+            }   
+        }       
+    }
+}
