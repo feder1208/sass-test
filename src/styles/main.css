@@ -8,6 +8,10 @@
   font-size: 62.5%;
 }
 
+main {
+  padding-top: 1.6rem;
+}
+
 .card-regular {
   display: flex;
   flex-direction: column;
@@ -103,60 +107,12 @@
   }
 }
 @media screen and (min-width: 48em) {
-  .card-regular {
-    min-height: 32.6rem;
-    width: 30%;
-  }
-  .card-regular__image {
-    width: 100%;
-  }
-
-  .body__icon {
-    display: none;
-  }
-
-  .card-regular-wider {
-    width: 52%;
-  }
-
-  .card-render-body .card-body {
-    width: 39%;
-  }
-  .card-render-body .card-body__image {
-    display: none;
-  }
-  .card-render-body .body__title {
-    font-size: 3.2rem;
-    line-height: 4rem;
-    letter-spacing: -0.04rem;
-  }
-
-  .card-render-author {
-    width: 30%;
-  }
-  .card-render-author .body__author {
-    padding-bottom: 1.5rem;
-  }
-}
-@media screen and (min-width: 64em) {
-  .card-render-body .card-body {
-    width: 27%;
-  }
-
-  .card-regular-wider {
-    width: 54%;
-  }
-
-  a:hover .card-regular__image {
-    opacity: 0.8;
-  }
-}
-@media screen and (min-width: 48em) {
   .right-focal {
     display: flex;
   }
   .right-focal .card-render-body {
-    max-width: 39%;
+    max-width: 36%;
+    margin-left: 1.5rem;
   }
   .right-focal .card-render-regular {
     max-width: 54%;
@@ -178,7 +134,9 @@
     display: flex;
     gap: 1.6rem;
     width: 96%;
-    margin: 7.2rem auto 0 auto;
+    margin: 2.2rem auto 0 auto;
+    border-top: 0.1rem solid #CCCCCC;
+    padding-top: 3rem;
   }
   .card-group-3 .card-regular {
     width: 100%;
@@ -199,9 +157,13 @@
   }
   .right-focal .card-render-regular {
     max-width: 60%;
+    margin-top: 0.5rem;
   }
   .right-focal .card-regular {
     width: 100%;
+  }
+  .right-focal .card-regular__image.card-body__image {
+    display: none;
   }
   .right-focal .separator-line {
     margin: 0 4rem;
@@ -234,7 +196,7 @@
     display: flex;
     gap: 4rem;
     width: 90%;
-    margin: 7.2rem 5rem 0 5rem;
+    margin: 3.2rem 5rem 0 5rem;
   }
   .card-group-3 .card-regular {
     width: 100%;
@@ -265,6 +227,10 @@
   .card-group-3 .body__icon span {
     display: flex;
   }
+
+  a:hover .card-regular__image {
+    opacity: 0.8;
+  }
 }
 @media screen and (min-width: 85em) {
   .right-focal {
@@ -279,6 +245,9 @@
   }
   .right-focal .card-regular {
     width: 100%;
+  }
+  .right-focal .card-regular__body {
+    width: 60%;
   }
   .right-focal .separator-line {
     margin: 0 4rem;
